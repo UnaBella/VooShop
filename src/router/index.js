@@ -78,6 +78,7 @@ export const constantRouterMap = [
   {
     path: '/documentation',
     component: Layout,
+    hidden: true,
     redirect: '/documentation/index',
     children: [
       {
@@ -91,6 +92,7 @@ export const constantRouterMap = [
   {
     path: '/guide',
     component: Layout,
+    hidden: true,
     redirect: '/guide/index',
     children: [
       {
@@ -108,8 +110,34 @@ export default new Router({
   scrollBehavior: () => ({ y: 0 }),
   routes: constantRouterMap
 })
-
 export const asyncRouterMap = [
+  {
+    path: '/demo',
+    component: Layout,
+    children: [
+      {
+        path: 'demopage',
+        component: () => import('@/pages/demo/demo'),
+        name: 'demopage',
+        meta: { title: 'demopage', icon: 'icon', noCache: true }
+      }
+    ]
+  }
+]
+export const aaaasyncRouterMap = [
+  {
+    path: '/o2o',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/svg-icons/index'),
+        name: 'o2oTitle',
+        meta: { title: 'o2oTitle', icon: 'icon', noCache: true }
+      }
+    ]
+  },
+  // =========自带组件=======================================
   {
     path: '/permission',
     component: Layout,
